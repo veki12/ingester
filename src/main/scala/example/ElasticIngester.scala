@@ -45,7 +45,7 @@ object ElasticIngester {
         })
 
         val result = client.bulk(bulk, RequestOptions.DEFAULT)
-        println(s"Indexed ${docs.size} documents - took ${System.currentTimeMillis - start}ms - hasFailures=${result.hasFailures}, failureMessage=${if (result.hasFailures) result.buildFailureMessage()}")
+        println(s"Indexed ${docs.size} documents in $f - took ${System.currentTimeMillis - start}ms - hasFailures=${result.hasFailures}, failureMessage=${if (result.hasFailures) result.buildFailureMessage()}")
 
         if (result.hasFailures) {
           hasFailures = true
